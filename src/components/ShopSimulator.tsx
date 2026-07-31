@@ -114,7 +114,7 @@ export default function ShopSimulator({ initialAmount = 0 }: Props) {
       <div className="card budget-card">
         <h3 className="card-title">所持熟達証書</h3>
         <div className="budget-row">
-          <img src="/img/Currency_Icon_MasterCoin.png" alt="熟達証書" className="budget-icon" />
+          <img src={import.meta.env.BASE_URL + 'img/Currency_Icon_MasterCoin.png'} alt="熟達証書" className="budget-icon" />
           <input
             type="text"
             className="input-budget"
@@ -180,7 +180,7 @@ export default function ShopSimulator({ initialAmount = 0 }: Props) {
                   )}
                   <div className="item-name">{item.name}</div>
                   <div className="item-price-row">
-                    <span className="item-price"><img src="/img/Currency_Icon_MasterCoin.png" alt="" className="coin-icon" />{formatNum(item.price)}</span>
+                    <span className="item-price"><img src={import.meta.env.BASE_URL + 'img/Currency_Icon_MasterCoin.png'} alt="" className="coin-icon" />{formatNum(item.price)}</span>
                     <span className="item-stock">在庫 {item.stock}</span>
                   </div>
                   <div className="item-controls">

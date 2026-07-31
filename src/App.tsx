@@ -45,7 +45,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <img src="/img/Currency_Icon_MasterCoin.png" alt="熟達証書" className="header-icon" />
+        <img src={import.meta.env.BASE_URL + 'img/Currency_Icon_MasterCoin.png'} alt="熟達証書" className="header-icon" />
         <h1 className="app-title">熟達証書シミュレーター</h1>
         <div className="header-subtitle">Blue Archive</div>
 
