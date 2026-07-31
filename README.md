@@ -63,9 +63,6 @@ npm run build
 - CSS変数によるテーマ切り替え
 - ローカルストレージ永続化
 
-### 画像ファイルについて
-`img/` フォルダに画像を配置し、`public/img` へjunctionを作成してください。
-
 ```powershell
 New-Item -ItemType Junction -Path public/img -Target img
 ```
