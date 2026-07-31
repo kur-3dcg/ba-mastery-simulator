@@ -29,7 +29,7 @@ jobs:
       - run: npm install
 
       - name: Copy images to public
-        run: cp -r img public/img
+        run: mkdir -p public && cp -r img public/img
 
       - run: npm run build
 
