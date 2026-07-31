@@ -1,0 +1,11 @@
+node_modules/
+dist/
+public/img
+*.local
+.DS_Store
+CLAUDE.md
+
+# ルート直下の参照用画像
+/*.png
+/*.jpg
+/*.jpeg

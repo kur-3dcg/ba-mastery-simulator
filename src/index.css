@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== ダークモード（デフォルト） ===== */
+:root {
+  --bg-page:          #0d1b2a;
+  --bg-card:          #112233;
+  --bg-deep:          #0d1b2a;
+  --border-base:      #1e3a5a;
+  --border-subtle:    #152a40;
+  --border-input:     #2a4a6b;
+  --accent:           #4a9eca;
+  --accent-bg:        rgba(74, 158, 202, 0.08);
+  --accent-bg-md:     rgba(74, 158, 202, 0.15);
+  --text-bright:      #e8f0fe;
+  --text-primary:     #c8e6f5;
+  --text-secondary:   #a8d8ea;
+  --text-label:       #8ab4cc;
+  --text-muted:       #7aabcc;
+  --text-faint:       #6699bb;
+  --text-dim:         #5a8aaa;
+  --text-dimmer:      #4a7a99;
+  --gold:             #ffd700;
+  --success:          #7acc99;
+  --danger:           #cc4444;
+  --danger-bg:        rgba(204, 68, 68, 0.1);
+  --danger-bright:    #ff6666;
+  --warn:             #cc7744;
+  --capped-row-bg:    rgba(255, 160, 50, 0.06);
+  --selected-bg:      #0f2a44;
+  --card-hover-border:#3a7aaa;
+  --qty-border:       #2a5a7a;
+  --purchased-border: #3a8a55;
+  --purchased-bg:     #0d2218;
+  --cannot-buy-border:#7a3333;
+  --cannot-buy-bg:    #220d0d;
+  --btn-grad-1:       #2a95d8;
+  --btn-grad-2:       #1a72b0;
+  --btn-grad-h1:      #3aa8e8;
+  --btn-grad-h2:      #2a82c0;
+}
+
+/* ===== ライトモード ===== */
+[data-theme="light"] {
+  --bg-page:          #e8f2fa;
+  --bg-card:          #ffffff;
+  --bg-deep:          #f0f6fb;
+  --border-base:      #c0d8ee;
+  --border-subtle:    #d5e8f5;
+  --border-input:     #9abcd5;
+  --accent:           #1a6aaa;
+  --accent-bg:        rgba(26, 106, 170, 0.08);
+  --accent-bg-md:     rgba(26, 106, 170, 0.15);
+  --text-bright:      #1a2a3a;
+  --text-primary:     #1e3a55;
+  --text-secondary:   #2a5070;
+  --text-label:       #3a6a88;
+  --text-muted:       #2a5878;
+  --text-faint:       #4a7090;
+  --text-dim:         #5a8098;
+  --text-dimmer:      #6a90a0;
+  --gold:             #8a6000;
+  --success:          #1a7040;
+  --danger:           #bb2222;
+  --danger-bg:        rgba(187, 34, 34, 0.08);
+  --danger-bright:    #dd3333;
+  --warn:             #aa5500;
+  --capped-row-bg:    rgba(160, 80, 0, 0.06);
+  --selected-bg:      #d8eeff;
+  --card-hover-border:#6aaad8;
+  --qty-border:       #8ab8d5;
+  --purchased-border: #1a8040;
+  --purchased-bg:     #e5f7ec;
+  --cannot-buy-border:#cc3333;
+  --cannot-buy-bg:    #fdecec;
+  --btn-grad-1:       #2a9ae0;
+  --btn-grad-2:       #1a7abb;
+  --btn-grad-h1:      #3aaaf0;
+  --btn-grad-h2:      #2a88cc;
+}
+
+body {
+  font-family: 'Segoe UI', 'Yu Gothic', 'Meiryo', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-bright);
+  min-height: 100vh;
+  transition: background 0.2s, color 0.2s;
+}
