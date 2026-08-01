@@ -11,6 +11,7 @@ type CartEntry = {
 type ItemState = {
   cannotBuy: boolean
   purchased: boolean
+  favorite: boolean
 }
 
 type Props = {
@@ -77,7 +78,7 @@ export default function ShopSimulator({ initialAmount = 0 }: Props) {
   }
 
   function getItemState(id: string): ItemState {
-    return itemStates[id] ?? { cannotBuy: false, purchased: false }
+    return itemStates[id] ?? { cannotBuy: false, purchased: false, favorite: false }
   }
 
   const filteredItems = SHOP_ITEMS
@@ -88,9 +89,13 @@ export default function ShopSimulator({ initialAmount = 0 }: Props) {
     })
     .sort((a, b) => {
       const snap = sortSnapshot.current
-      const aEnd = (snap[a.id]?.cannotBuy || snap[a.id]?.purchased) ? 1 : 0
-      const bEnd = (snap[b.id]?.cannotBuy || snap[b.id]?.purchased) ? 1 : 0
-      return aEnd - bEnd
+      const priority = (id: string) => {
+        const s = snap[id]
+        if (s?.favorite) return 0
+        if (s?.cannotBuy || s?.purchased) return 2
+        return 1
+      }
+      return priority(a.id) - priority(b.id)
     })
 
   const cartDisplay: CartEntry[] = [...cart.entries()]
@@ -173,6 +178,11 @@ export default function ShopSimulator({ initialAmount = 0 }: Props) {
                   key={item.id}
                   className={`item-card ${qty > 0 ? 'item-selected' : ''} ${!affordable && qty === 0 ? 'item-unaffordable' : ''} ${state.purchased ? 'item-purchased' : ''} ${state.cannotBuy ? 'item-cannot-buy' : ''}`}
                 >
+                  <button
+                    className={`item-favorite-btn ${state.favorite ? 'active' : ''}`}
+                    onClick={() => updateItemState(item.id, { favorite: !state.favorite })}
+                    title={state.favorite ? 'お気に入り解除' : 'お気に入り'}
+                  >★</button>
                   {item.image && (
                     <div className="item-img-wrap">
                       <img src={item.image} alt={item.name} className="item-img" />

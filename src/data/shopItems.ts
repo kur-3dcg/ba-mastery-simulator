@@ -26,6 +26,7 @@ export const SHOP_ITEMS: ShopItem[] = [
   { id: 'wakamo', name: 'ワカモの神名文字x5', stock: 2, price: 2400, category: 'divine_s', image: img('Wakamo_Fragment.png') },
 
   // 在庫6 / 単価1,800（配布）
+  { id: 'atsuko_swim', name: 'アツコ（水着）の神名文字x5', stock: 6, price: 1800, category: 'divine_dist', image: img('Atsuko_Swimsuit_Fragment.png') },
   { id: 'airi_band', name: 'アイリ（バンド）の神名文字x5', stock: 6, price: 1800, category: 'divine_dist', image: img('Airi_Band_Fragment.png') },
   { id: 'otogi', name: 'オトギの神名文字x5', stock: 6, price: 1800, category: 'divine_dist', image: img('Otogi_Fragment.png') },
   { id: 'toki_combat', name: 'トキ（臨戦）の神名文字x5', stock: 6, price: 1800, category: 'divine_dist', image: img('Toki_Armed_Fragment.png') },
@@ -46,6 +47,8 @@ export const SHOP_ITEMS: ShopItem[] = [
   { id: 'nonomi', name: 'ノノミの神名文字x5', stock: 6, price: 1800, category: 'divine_dist', image: img('Nonomi_Fragment.png') },
 
   // 在庫2 / 単価1,800（限定）
+  { id: 'rio_combat', name: 'リオ（臨戦）の神名文字x5', stock: 2, price: 1800, category: 'divine_limited', image: img('Rio_Armed_Fragment.png') },
+  { id: 'himari_combat', name: 'ヒマリ（臨戦）の神名文字x5', stock: 2, price: 1800, category: 'divine_limited', image: img('Himari_Armed_Fragment.png') },
   { id: 'reisa_magical', name: 'レイサ（マジカル）の神名文字x5', stock: 2, price: 1800, category: 'divine_limited', image: img('Reisa_Magical_Fragment.png') },
   { id: 'suzumi_magical', name: 'スズミ（マジカル）の神名文字x5', stock: 2, price: 1800, category: 'divine_limited', image: img('Suzumi_Magical_Fragment.png') },
   { id: 'hasumi_swim', name: 'ハスミ（水着）の神名文字x5', stock: 2, price: 1800, category: 'divine_limited', image: img('Hasumi_Swimsuit_Fragment.png') },
