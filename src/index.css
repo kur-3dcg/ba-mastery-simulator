@@ -45,41 +45,41 @@
 
 /* ===== ライトモード ===== */
 [data-theme="light"] {
-  --bg-page:          #e8f2fa;
-  --bg-card:          #ffffff;
-  --bg-deep:          #f0f6fb;
-  --border-base:      #c0d8ee;
-  --border-subtle:    #d5e8f5;
-  --border-input:     #9abcd5;
-  --accent:           #1a6aaa;
-  --accent-bg:        rgba(26, 106, 170, 0.08);
-  --accent-bg-md:     rgba(26, 106, 170, 0.15);
-  --text-bright:      #1a2a3a;
-  --text-primary:     #1e3a55;
-  --text-secondary:   #2a5070;
-  --text-label:       #3a6a88;
-  --text-muted:       #2a5878;
-  --text-faint:       #4a7090;
-  --text-dim:         #5a8098;
-  --text-dimmer:      #6a90a0;
-  --gold:             #8a6000;
+  --bg-page:          #E9F2FA;
+  --bg-card:          #FFFFFF;
+  --bg-deep:          #EEF6FC;
+  --border-base:      #B8D4E8;
+  --border-subtle:    #CCE0F2;
+  --border-input:     #8AB0CC;
+  --accent:           #64BCFC;
+  --accent-bg:        rgba(100, 188, 252, 0.1);
+  --accent-bg-md:     rgba(100, 188, 252, 0.2);
+  --text-bright:      #000000;
+  --text-primary:     #1A1A2F;
+  --text-secondary:   #2A2A4A;
+  --text-label:       #4C5A6B;
+  --text-muted:       #4C5A6B;
+  --text-faint:       #5A6A7A;
+  --text-dim:         #7A8A9A;
+  --text-dimmer:      #9AAABA;
+  --gold:             #ffc042;
   --success:          #1a7040;
   --danger:           #bb2222;
   --danger-bg:        rgba(187, 34, 34, 0.08);
   --danger-bright:    #dd3333;
   --warn:             #aa5500;
-  --capped-row-bg:    rgba(160, 80, 0, 0.06);
-  --selected-bg:      #d8eeff;
-  --card-hover-border:#6aaad8;
-  --qty-border:       #8ab8d5;
+  --capped-row-bg:    rgba(255, 192, 66, 0.08);
+  --selected-bg:      rgba(100, 188, 252, 0.15);
+  --card-hover-border:#64BCFC;
+  --qty-border:       #9ABCD5;
   --purchased-border: #1a8040;
   --purchased-bg:     #e5f7ec;
   --cannot-buy-border:#cc3333;
   --cannot-buy-bg:    #fdecec;
-  --btn-grad-1:       #2a9ae0;
-  --btn-grad-2:       #1a7abb;
-  --btn-grad-h1:      #3aaaf0;
-  --btn-grad-h2:      #2a88cc;
+  --btn-grad-1:       #64BCFC;
+  --btn-grad-2:       #4AA8E8;
+  --btn-grad-h1:      #7ACAFE;
+  --btn-grad-h2:      #5AB4F0;
 }
 
 body {

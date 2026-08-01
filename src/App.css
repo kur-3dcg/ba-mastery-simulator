@@ -680,6 +680,11 @@ input[type="checkbox"] {
   color: var(--gold);
 }
 
+[data-theme="light"] .item-favorite-btn:hover,
+[data-theme="light"] .item-favorite-btn.active {
+  color: #cc8800;
+}
+
 .item-card.item-purchased {
   border-color: var(--purchased-border);
   background: var(--purchased-bg);
