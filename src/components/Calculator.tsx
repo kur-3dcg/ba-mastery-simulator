@@ -84,7 +84,7 @@ export default function Calculator({ onUseResult }: Props) {
             min={0}
             onChange={e => setCurrentAmount(Number(e.target.value))}
           />
-          <label style={{ marginLeft: '24px' }}>
+          <label style={{ marginLeft: '24px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
             <input
               type="checkbox"
               checked={usePartialCalc}
