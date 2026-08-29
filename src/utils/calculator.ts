@@ -67,6 +67,7 @@ export function calcMonthlyAcquisition(
   month: number,
   resetDayOfWeek: number,
   settings: DailySettings,
+  fromDate?: Date,
 ): CalcResult {
   const dailyGain = calcDailyGain(settings)
   const weekCap = WEEKLY_CAP
@@ -76,9 +77,16 @@ export function calcMonthlyAcquisition(
   const monthStart = new Date(year, month - 1, 1)
   const monthEnd = new Date(year, month, 0)
 
-  const dayOfWeek = monthStart.getDay()
+  // 計算開始日（月途中指定時はそこから、そうでなければ月初）
+  const calcStart = fromDate && fromDate > monthStart
+    ? new Date(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate())
+    : new Date(monthStart)
+
+  if (calcStart > monthEnd) return { weeks: [], weekCap, grandTotal: 0 }
+
+  const dayOfWeek = calcStart.getDay()
   const daysToResetDay = (dayOfWeek - resetDayOfWeek + 7) % 7
-  const firstPeriodStart = new Date(monthStart)
+  const firstPeriodStart = new Date(calcStart)
   firstPeriodStart.setDate(firstPeriodStart.getDate() - daysToResetDay)
 
   const weeks: WeekPeriod[] = []
@@ -90,7 +98,7 @@ export function calcMonthlyAcquisition(
     const periodEnd = new Date(cursor)
     periodEnd.setDate(periodEnd.getDate() + 6)
 
-    const effectiveStart = cursor < monthStart ? new Date(monthStart) : new Date(cursor)
+    const effectiveStart = cursor < calcStart ? new Date(calcStart) : new Date(cursor)
     const effectiveEnd = periodEnd > monthEnd ? new Date(monthEnd) : new Date(periodEnd)
 
     const days =

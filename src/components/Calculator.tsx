@@ -14,6 +14,11 @@ type Props = {
   onUseResult: (amount: number) => void
 }
 
+function todayStr() {
+  const t = new Date()
+  return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
+}
+
 export default function Calculator({ onUseResult }: Props) {
   const today = new Date()
   const [year, setYear] = useState(today.getFullYear())
@@ -21,11 +26,19 @@ export default function Calculator({ onUseResult }: Props) {
   const resetDay = 1
   const [settings, setSettings] = useLocalStorage<DailySettings>('juktatsu_settings', DEFAULT_DAILY_SETTINGS)
   const [result, setResult] = useState<CalcResult | null>(null)
+  const [usePartialCalc, setUsePartialCalc] = useLocalStorage('juktatsu_use_partial', false)
+  const [startDateStr, setStartDateStr] = useState(todayStr)
+  const [currentAmount, setCurrentAmount] = useLocalStorage('juktatsu_current_amount', 0)
 
   const dailyGain = calcDailyGain(settings)
 
   function handleCalc() {
-    setResult(calcMonthlyAcquisition(year, month, resetDay, settings))
+    let fromDate: Date | undefined
+    if (usePartialCalc && startDateStr) {
+      const [y, m, d] = startDateStr.split('-').map(Number)
+      fromDate = new Date(y, m - 1, d)
+    }
+    setResult(calcMonthlyAcquisition(year, month, resetDay, settings, fromDate))
   }
 
   function updateSetting<K extends keyof DailySettings>(key: K, value: DailySettings[K]) {
@@ -58,6 +71,43 @@ export default function Calculator({ onUseResult }: Props) {
               <option key={m} value={m}>{m}月</option>
             ))}
           </select>
+        </div>
+
+        <hr className="card-divider" />
+
+        <div className="form-row">
+          <label>現在の所持数</label>
+          <input
+            type="number"
+            className="input-small"
+            value={currentAmount}
+            min={0}
+            onChange={e => setCurrentAmount(Number(e.target.value))}
+          />
+          <label style={{ marginLeft: '24px' }}>
+            <input
+              type="checkbox"
+              checked={usePartialCalc}
+              onChange={e => setUsePartialCalc(e.target.checked)}
+            />
+            月途中から計算する
+          </label>
+          {usePartialCalc && (
+            <>
+              <input
+                type="date"
+                className="input-small"
+                value={startDateStr}
+                onChange={e => setStartDateStr(e.target.value)}
+              />
+              <button
+                className="btn-today"
+                onClick={() => setStartDateStr(todayStr())}
+              >
+                今日
+              </button>
+            </>
+          )}
         </div>
       </div>
 
@@ -272,15 +322,32 @@ export default function Calculator({ onUseResult }: Props) {
           </table>
 
           <div className="result-summary">
-            <div className="result-row total">
-              <span>月間合計</span>
-              <span className="total-num">{formatNum(result.grandTotal)}</span>
-            </div>
+            {(usePartialCalc || currentAmount > 0) ? (
+              <>
+                <div className="result-row">
+                  <span>{usePartialCalc ? '残り日数の取得予定' : '月間合計'}</span>
+                  <span>{formatNum(result.grandTotal)}</span>
+                </div>
+                <div className="result-row">
+                  <span>現在の所持数</span>
+                  <span>{formatNum(currentAmount)}</span>
+                </div>
+                <div className="result-row total">
+                  <span>合計</span>
+                  <span className="total-num">{formatNum(result.grandTotal + currentAmount)}</span>
+                </div>
+              </>
+            ) : (
+              <div className="result-row total">
+                <span>月間合計</span>
+                <span className="total-num">{formatNum(result.grandTotal)}</span>
+              </div>
+            )}
           </div>
 
           <button
             className="btn-secondary"
-            onClick={() => onUseResult(result.grandTotal)}
+            onClick={() => onUseResult(result.grandTotal + currentAmount)}
           >
             この金額でショップをシミュレート →
           </button>

@@ -87,6 +87,12 @@
 }
 
 /* ===== カード ===== */
+.card-divider {
+  border: none;
+  border-top: 1px solid var(--border-base);
+  margin: 12px 0;
+}
+
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border-base);
@@ -146,6 +152,10 @@ input:focus, select:focus {
 select.input-small {
   width: auto;
   cursor: pointer;
+}
+
+input[type="date"].input-small {
+  width: 140px;
 }
 
 .hint {
@@ -274,6 +284,24 @@ input[type="checkbox"] {
 
 .btn-secondary:hover {
   background: var(--accent-bg);
+}
+
+.btn-today {
+  padding: 4px 12px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 4px;
+  transition: background 0.15s;
+}
+
+.btn-today:hover {
+  background: var(--accent);
+  color: #fff;
 }
 
 .btn-danger {
@@ -682,7 +710,7 @@ input[type="checkbox"] {
 
 [data-theme="light"] .item-favorite-btn:hover,
 [data-theme="light"] .item-favorite-btn.active {
-  color: #cc8800;
+  color: #ffd700;
 }
 
 .item-card.item-purchased {
