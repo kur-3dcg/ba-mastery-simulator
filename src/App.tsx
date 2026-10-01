@@ -7,12 +7,6 @@ import './App.css'
 type Tab = 'calc' | 'shop'
 type Theme = 'dark' | 'light'
 
-const OTHER_TOOLS = [
-  { label: 'TL作成支援ツール', url: 'https://kur-3dcg.github.io/blue-archive-tl-tool/' },
-  { label: '戦術対抗戦編成管理ツール', url: 'https://kur-3dcg.github.io/ba-formation-manager/' },
-  { label: '家具シミュレーションツール', url: 'https://kur-3dcg.github.io/Furniture-placement-simulator/' },
-  { label: '石割収支計算ツール', url: 'https://kur-3dcg.github.io/Tactical-Battle-Stone-Accounting/index.html' },
-]
 
 export default function App() {
   const [tab, setTab] = useLocalStorage<Tab>('juktatsu_tab', 'calc')
@@ -68,12 +62,9 @@ export default function App() {
 
           {menuOpen && (
             <div className="hamburger-menu">
-              <div className="hm-section-label">他ツール</div>
-              {OTHER_TOOLS.map(t => (
-                <a key={t.url} className="hm-link" href={t.url} target="_blank" rel="noreferrer">
-                  {t.label}
-                </a>
-              ))}
+              <a className="hm-link" href="https://kur-3dcg.github.io/" target="_blank" rel="noreferrer">
+                その他ツール
+              </a>
 
               <div className="hm-divider" />
 
