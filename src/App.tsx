@@ -71,6 +71,14 @@ export default function App() {
               <div className="hm-section-label">マニュアル</div>
               <a
                 className="hm-link"
+                href="https://note.com/kur7263/n/n291ed8704338"
+                target="_blank"
+                rel="noreferrer"
+              >
+                マニュアル
+              </a>
+              <a
+                className="hm-link"
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfFoYgFIl-L-CI4KeHrqMtAuERyO_JwbEwgTiXkflbyJsNcMQ/viewform?usp=publish-editor"
                 target="_blank"
                 rel="noreferrer"
